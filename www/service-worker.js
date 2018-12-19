@@ -10,8 +10,6 @@ const PRECACHE_URLS = [
   './', // Alias for index.html
   'bundle.css',
   'bundle.js',
-  'models/bolan.glb',
-  'models/assets.glb',
 ];
 
 // The install handler takes care of precaching the resources we always need.
