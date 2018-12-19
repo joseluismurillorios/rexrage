@@ -25,8 +25,13 @@ import OrbitControls from 'three-orbitcontrols';
 import WEBGL from './helper-webgl';
 import SimplexNoise from './helper-simplex';
 
-import bolanUrl from '../assets/models/bolan.glb';
-import assetsUrl from '../assets/models/assets.glb';
+// import bolanUrl from '../assets/models/bolan.glb';
+// import assetsUrl from '../assets/models/assets.glb';
+
+const bolanUrl = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/rexrage/src/core/assets/models/bolan.glb';
+const assetsUrl = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/rexrage/src/core/assets/models/assets.glb';
+
+console.log(bolanUrl);
 
 export default (container) => {
   if (WEBGL.isWebGLAvailable() === false) {
