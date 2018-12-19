@@ -1,0 +1,125 @@
+@import "../../../assets/scss/foundation/variables";
+
+.app__corner {
+  z-index: 9;
+  position: fixed;
+  transition: background-color 1s cubic-bezier(0.5, -0.75, 0.05, 1);
+
+  width: $s-lg;
+  height: $s-lg;
+  background-color: $darker;
+  
+  width: var(--s-lg);
+  height: var(--s-lg);
+  background-color: var(--darker);
+
+
+  @media (max-width: 767px) {
+    bottom: 0px;
+    left: 0px;
+    border-top-right-radius: 100%;
+
+    border-top: 2px solid $primary;
+    border-right: 2px solid $primary;
+
+    border-top: 2px solid var(--primary);
+    border-right: 2px solid var(--primary);
+    .burger {
+      top: 48px;
+    }
+  }
+
+
+  @media (min-width: 768px) {
+    top: 0px;
+    left: 0px;
+    border-bottom-right-radius: 100%;
+
+    border-bottom: 2px solid $primary;
+    border-right: 2px solid $primary;
+
+    border-bottom: 2px solid var(--primary);
+    border-right: 2px solid var(--primary);
+    .burger {
+      top: 30px;
+    }
+  }
+
+  .burger {
+    z-index: 10;
+    position: absolute;
+    height: 34px;
+    width: 34px;
+    left: 12px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    transition: 0.4s ease;
+  }
+
+  .burger .white-bar {
+    position: absolute;
+    height: 2px;
+    width: 66%;
+    background-color: #ccc;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    transition: 0.4s ease, width 0.3s ease;
+  }
+
+  .burger .white-bar:nth-child(1) {
+    top: 24%;
+  }
+
+  .burger .white-bar:nth-child(2),
+  .burger .white-bar:nth-child(3) {
+    top: 47%;
+  }
+
+  .burger .white-bar:nth-child(4) {
+    top: 71%;
+  }
+
+
+  .burger.opened .white-bar:nth-child(1),
+  .burger.opened .white-bar:nth-child(4) {
+    width: 0%;
+  }
+  .burger.opened .white-bar:nth-child(2) {
+    -webkit-transform: translateX(-50%) rotate(45deg);
+            transform: translateX(-50%) rotate(45deg);
+  }
+  .burger.opened .white-bar:nth-child(3) {
+    -webkit-transform: translateX(-50%) rotate(-45deg);
+            transform: translateX(-50%) rotate(-45deg);
+  }
+}
+
+
+.opened .app__corner {
+  &::before {
+    content: '';
+    z-index: 8;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    transition: all 1s cubic-bezier(0.5, -0.75, 0.05, 1);
+
+    width: $s-lg;
+    height: $s-lg;
+    background-color: $primary-15;
+
+    width: var(--s-lg);
+    height: var(--s-lg);
+    background-color: var(--primary-15);
+
+    @media (max-width: 767px) {
+      border-top-right-radius: 100%;
+    }
+  
+  
+    @media (min-width: 768px) {
+      border-bottom-right-radius: 100%;
+    }
+  }
+}

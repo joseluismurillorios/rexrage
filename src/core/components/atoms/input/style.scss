@@ -1,0 +1,31 @@
+@import "../../../assets/scss/foundation/variables";
+
+.app__input {
+  appearance: none;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  
+  border-bottom: 1px solid $light-20;
+  margin-bottom: $s-xs 0;
+  color: $light;
+  font-size: $f-bs;
+  padding: $s-sm 0;
+  
+  border-bottom: 1px solid var(--light-20);
+  margin-bottom: var(--s-xs) 0;
+  color: var(--light);
+  font-size: var(--f-bs);
+  padding: var(--s-sm) 0;
+
+  &:active, &:focus {
+    border-bottom: 1px solid $primary;
+    border-bottom: 1px solid var(--primary);
+  }
+
+  &::placeholder {
+    color: $light-20;
+    color: var(--light-20);
+    font-weight: 100;
+  }
+}

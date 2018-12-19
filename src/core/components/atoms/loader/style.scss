@@ -1,0 +1,69 @@
+@import "../../../assets/scss/foundation/variables";
+
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  left: 0;
+  top: 0;
+
+  background-color: $darker;
+
+  background-color: var(--darker);
+}
+
+.preloader .ball-scale-multiple {
+  position: relative;
+  top: 50%;
+  left: 50%;
+}
+
+@keyframes ball-scale-multiple {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.ball-scale-multiple {
+  position: relative;
+  transform: translateY(-30px);
+}
+
+.ball-scale-multiple > div:nth-child(2) {
+  animation-delay: -0.4s;
+}
+
+.ball-scale-multiple > div:nth-child(3) {
+  animation-delay: -0.2s;
+}
+
+.ball-scale-multiple > div {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  margin: 2px;
+  animation-fill-mode: both;
+  position: absolute;
+  left: -30px;
+  top: 0px;
+  opacity: 0;
+  margin: 0;
+  width: 60px;
+  height: 60px;
+  animation: ball-scale-multiple 1s 0s linear infinite;
+  
+  background-color: $primary-50;
+
+  background-color: var(--primary-50);
+}

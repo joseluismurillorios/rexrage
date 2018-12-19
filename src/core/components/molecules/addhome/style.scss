@@ -1,0 +1,75 @@
+.addhome {
+  position: absolute;
+  bottom: 1.5rem;
+  padding: 1rem;
+  background: #FFFFFF;
+  z-index: 11;
+	border-radius: 5px;
+	text-align: center;
+  box-shadow: 0px 3px 10px #999;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  
+  h4 {
+    color: #000000;
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5rem;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+
+    img, svg {
+      margin: 0 0.5rem;
+    }
+
+    img.share, .svg-share {
+      height: 1.5rem;
+      margin-top: -2px;
+    }
+    img.home, .svg-home {
+      height: 1.4rem;
+    }
+  }
+  
+  &::after {
+    position: absolute;
+    content: '';
+    height: 0px;
+    width: 0px;
+    left: 43%;
+    bottom: -20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #FFFFFF;
+    z-index: 9999;
+  }
+
+  &__close-icon {
+    position: absolute;
+    width: 0px;
+    right: 20px;
+    top: 0px;
+    font-size: 24px;
+    font-weight: bolder;
+    color: #000000;
+    cursor: pointer;
+  }
+}
+
+@media screen and (orientation:landscape) {
+  #addhome {
+    display: none;
+  }
+}

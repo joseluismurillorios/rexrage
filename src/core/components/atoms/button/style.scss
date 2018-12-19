@@ -1,0 +1,47 @@
+@import "../../../assets/scss/foundation/variables";
+
+.app__button {
+  appearance: none;
+  background: transparent;
+
+  color: $primary;
+  font-size: $f-bs;
+  font-size: $f-sm;
+  border-radius: $s-bs;
+  border: 1px solid $primary-15;
+  margin-bottom: $s-xs 0;
+  padding: $s-xs $s-bs;
+
+  color: var(--primary);
+  font-size: var(--f-bs);
+  font-size: var(--f-sm);
+  border-radius: var(--s-bs);
+  border: 1px solid var(--primary-15);
+  margin-bottom: var(--s-xs) 0;
+  padding: var(--s-xs) var(--s-bs);
+
+  text-transform: uppercase;
+  user-select: none;
+  transition: all .15s ease-in-out;
+
+  &:focus {
+    border: 1px solid $primary-50;
+
+    border: 1px solid var(--primary-50);
+  }
+
+  &:active, &:visited {
+    border: 1px solid $primary;
+    background: $dark;
+
+    border: 1px solid var(--primary);
+    background: var(--dark);
+  }
+
+
+  &::placeholder {
+    color: $light-20;
+    color: var(--light-20);
+    font-weight: 100;
+  }
+}

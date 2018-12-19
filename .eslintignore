@@ -1,0 +1,7 @@
+lib
+dist
+node_modules
+**/*.min.js
+www
+**/*.min.css
+server.js

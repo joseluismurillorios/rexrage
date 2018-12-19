@@ -1,0 +1,186 @@
+@import "../fonts/karla/karla.css";
+@import "../fonts/brands/fontawesome.css";
+@import "../fonts/brands/brands.css";
+
+@import "foundation/variables";
+@import "foundation/page-transition";
+@import "foundation/scrollbars";
+@import "foundation/theme";
+
+
+*, *::after, *::before {
+  outline: none !important;
+  box-sizing: border-box;
+  // touch-action: manipulation;
+}
+
+:root {
+  --f-xs: .5rem;
+  --f-sm: .85rem;
+  --f-bs: 1rem;
+  --f-md: 1.5rem;
+  --f-lg: 2em;
+
+  --s-xs: .75rem;
+  --s-sm: 1rem;
+  --s-bs: 2rem;
+  --s-md: 3rem;
+  --s-lg: 5rem;
+
+
+  --primary: rgba(225, 199, 155, 1);
+  --primary-50: rgba(225, 199, 155, 0.5);
+  --primary-15: rgba(225, 199, 155, 0.15);
+  --darker: rgba(27, 27, 27, 1);
+  --dark: rgba(33, 33, 33, 1);
+  --dark-80: rgba(33, 33, 33, 0.8);
+  --dark-20: rgba(33, 33, 33, 0.2);
+  --light: rgba(255, 255, 255, 1);
+  --light-50: rgba(255, 255, 255, 0.5);
+  --light-20: rgba(255, 255, 255, 0.2);
+  --light-05: rgba(255, 255, 255, 0.05);
+}
+
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+}
+
+html, body,
+#Root {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Karla', sans-serif;
+  top: 0;
+  left: 0;
+  background: $darker;
+  color: $light;
+  background: var(--darker);
+  color: var(--light);
+  -webkit-overflow-scrollable: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+
+  .fill {
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    overflow: hidden;
+    -webkit-overflow-scrollable: none;
+    overscroll-behavior-y: contain;
+  }
+
+  .full {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .app__statusbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 23px;
+    background: $dark;
+    background: var(--dark);
+    display: none;
+    z-index: 10;
+  }
+
+  .app__page {
+    position: relative;
+    padding-bottom: $s-lg;
+    padding-bottom: var(--s-lg);
+  }
+
+  &.isStandalone {
+    width: 100vw;
+    height: 100vh;
+    .app__statusbar {
+      display: block;
+    }
+    .app__router {
+      top: 23px;
+    }
+    // .app__corner {
+    //   top: 23px;
+    // }
+
+    /* Landscape */
+    @media only screen and (max-device-width: 667px) and (orientation: landscape) {
+      .app__statusbar {
+        display: none;
+      }
+      .app__router {
+        top: 0;
+      }
+      .app__corner {
+        top: 0;
+      }
+    }
+  }
+}
+
+button {
+  -webkit-appearance: none;
+  border: 0;
+  font-family: 'Karla';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  font-family: 'Karla', 'Montserrat', sans-serif;
+}
+
+.defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  border: 0;
+}
+
+svg text.material-icons {
+  font-family: 'Material Icons';
+}
+
+
+
+::placeholder {
+  color: gray;
+}
+
+div.scrollable {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}

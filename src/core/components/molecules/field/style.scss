@@ -1,0 +1,23 @@
+@import "../../../assets/scss/foundation/variables";
+
+.app__field {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 3rem 0;
+  
+  margin: $s-md 0;
+
+  margin: var(--s-md) 0;
+
+  .app__label {
+    font-size: .85rem;
+    margin-bottom: -8px;
+
+    font-size: $f-sm;
+    color: $primary;
+
+    font-size: var(--f-sm);
+    color: var(--primary);
+  }
+}

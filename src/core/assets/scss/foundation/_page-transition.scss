@@ -1,0 +1,106 @@
+@keyframes fadeIn {
+  0% {
+      opacity: 0.0;       
+  }
+  100% {
+      opacity: 1; 
+  }       
+}
+
+@keyframes fadeOut {
+  0% {
+      opacity: 1;       
+  }
+  100% {
+      opacity: 0.0; 
+  }       
+}
+
+.fade-appear {
+  &.fade-appear-active {
+    animation-name: fadeIn;
+    animation-duration: 1000ms;   
+    animation-timing-function: ease-in-out; 
+    visibility: visible !important; 
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+  transition: all 1000ms ease-in-out;
+  &.fade-enter-active {
+    opacity: 1;
+    transition: all 1000ms ease-in-out;
+  }
+}
+
+.fade-exit {
+  opacity: 1;
+  transition: all 1000ms ease-in-out;
+  &.fade-exit-active {
+    opacity: 0;
+    transition: all 1000ms ease-in-out;
+  }
+}
+
+// Fast
+.fast-appear {
+  animation-duration: 200ms;   
+  &.fast-appear-active {
+    animation-name: fadeIn;
+    animation-duration: 200ms;   
+    animation-timing-function: ease-in-out; 
+    visibility: visible !important; 
+  }
+}
+
+.fast-enter {
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  &.fast-enter-active {
+    opacity: 1;
+    transition: all 200ms ease-in-out;
+  }
+}
+
+.fast-exit {
+  opacity: 1;
+  transition: all 200ms ease-in-out;
+  &.fast-exit-active {
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+  }
+}
+
+Slow
+.slow-appear {
+  animation-duration: 500ms;   
+  &.slow-appear-active {
+    animation-name: fadeIn;
+    animation-duration: 500ms;   
+    animation-timing-function: ease-in-out; 
+    visibility: visible !important; 
+  }
+}
+
+.slow-enter {
+  opacity: 0;
+  position: relative;
+  transition: all 500ms ease-in-out;
+  &.slow-enter-active {
+    opacity: 1;
+    position: relative;
+    transition: all 500ms ease-in-out;
+  }
+}
+
+.slow-exit {
+  opacity: 1;
+  position: absolute;
+  transition: all 500ms ease-in-out;
+  &.slow-exit-active {
+    opacity: 0;
+    position: absolute;
+    transition: all 500ms ease-in-out;
+  }
+}

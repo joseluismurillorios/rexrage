@@ -1,0 +1,21 @@
+@import "../../../assets/scss/foundation/variables";
+
+.app__social {
+  margin-top: $s-bs;
+
+  margin-top: var(--s-bs);
+
+  .app__brand {
+    margin: $f-xs;
+    color: $light-50;
+
+    margin: var(--f-xs);
+    color: var(--light-50);
+
+    &:hover {
+      color: $light;
+      
+      color: var(--light);
+    }
+  }
+}

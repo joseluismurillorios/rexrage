@@ -1,0 +1,13 @@
+@import "../../../assets/scss/foundation/variables";
+
+.app__container {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+
+  padding-left: $s-bs;
+  padding-right: $s-bs;
+  
+  padding-left: var(--s-bs);
+  padding-right: var(--s-bs);
+}

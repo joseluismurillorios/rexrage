@@ -1,0 +1,35 @@
+@import "../../../assets/scss/foundation/variables";
+
+.app__navbar {
+  position: absolute;
+  z-index: 11;
+
+
+  .app__navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+
+    background: $darker;
+    
+    background: var(--darker);
+
+    a {
+      text-decoration: none;
+
+      font-size: $f-lg;
+      color: $light;
+
+      font-size: var(--f-lg);
+      color: var(--light);
+
+      &.active {
+        color: $primary;
+
+        color: var(--primary);
+      }
+    }
+  }
+}
