@@ -40,6 +40,7 @@ if ('navigator' in window && window.navigator.standalone) {
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js');
+  console.log('Service worker registered');
 }
 
 // Add swipe capabillities
