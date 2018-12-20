@@ -24,11 +24,17 @@ import OrbitControls from 'three-orbitcontrols';
 
 import WEBGL from './helper-webgl';
 import SimplexNoise from './helper-simplex';
+import { debounce } from './helper-util';
 
 import bolanUrl from '../assets/models/bolan.glb';
 import assetsUrl from '../assets/models/assets.glb';
 
+// const bolanUrl = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/rexrage/src/core/assets/models/bolan.glb';
+// const assetsUrl = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/rexrage/src/core/assets/models/assets.glb';
+
 export default (container) => {
+  const IS_MOBILE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   if (WEBGL.isWebGLAvailable() === false) {
     document.body.appendChild(WEBGL.getWebGLErrorMessage());
   }
@@ -56,14 +62,15 @@ export default (container) => {
 
   let planeGeo;
   let planeMesh;
-  const side = 120;
+  const side = 40;
+  const offsetRate = 0.0004;
 
-  let xZoom;
-  let yZoom;
-  let noiseStrength;
-  let simplex;
+  const xZoom = 6;
+  const yZoom = 6;
+  const noiseStrength = 0.155;
+  const simplex = new SimplexNoise();
 
-  let paused = true;
+  let paused = false;
 
   const gameAssets = {
     tree1: {
@@ -181,13 +188,14 @@ export default (container) => {
   function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-
+    // alert(`'resize': ${window.innerWidth}, ${window.innerHeight}`);
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.render(scene, camera);
   }
 
   function animate(frame) {
     frame = frame || 0;
-    const offset = frame * 0.0003;
+    const offset = frame * offsetRate;
 
     requestAnimationFrame(animate);
 
@@ -248,6 +256,8 @@ export default (container) => {
 
       const dinoVertices = dinoCollision.geometry.vertices;
 
+      let hits = false;
+
       for (let vertexIndex = 0; vertexIndex < dinoVertices.length; vertexIndex += 1) {
         const localVertex = dinoVertices[vertexIndex].clone();
         const globalVertex = localVertex.applyMatrix4(dinoCollision.matrix);
@@ -256,25 +266,35 @@ export default (container) => {
         const ray = new Raycaster(originPoint, directionVector.clone().normalize());
         const cResults = ray.intersectObjects(collidableMeshList);
         if (cResults.length > 0 && cResults[0].distance < directionVector.length()) {
-          console.log(' Hit ');
-          enemiesCollision.material.opacity = 0.1;
-          dinoCollision.material.opacity = 0.1;
-          paused = true;
-        } else {
-          // enemiesCollision.material.opacity = 0;
-          // dinoCollision.material.opacity = 0;
+          console.log('Hit');
+          hits = true;
         }
+      }
+      if (hits) {
+        enemiesCollision.material.opacity = 0.1;
+        dinoCollision.material.opacity = 0.1;
+      } else {
+        enemiesCollision.material.opacity = 0;
+        dinoCollision.material.opacity = 0;
       }
     }
     mixer.update(delta);
-    controls.update(delta);
+
+    if (!IS_MOBILE) {
+      controls.update(delta);
+    }
 
     renderer.render(scene, camera);
   }
 
   function setupScene() {
     camera = new PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 100);
-    camera.position.set(0, 2, 11);
+
+    if (IS_MOBILE) {
+      camera.position.set(-2, 2, 15);
+    } else {
+      camera.position.set(0, 2, 8);
+    }
 
     clock = new Clock();
 
@@ -318,15 +338,20 @@ export default (container) => {
   }
 
   function setupGround() {
-    const ground = new MeshPhongMaterial({ color: 0x826a40, wireframe: false });
+    const ground = new MeshPhongMaterial({
+      color: 0x826a40,
+      flatShading: true,
+      wireframe: false,
+    });
 
-    planeGeo = new PlaneGeometry(50, 50, side, side);
+    planeGeo = new PlaneGeometry(50, 40, side, side);
     // console.log(planeGeo.vertices);
 
     planeMesh = new Mesh(planeGeo, ground);
     planeMesh.rotation.x = -Math.PI / 2;
     planeMesh.rotation.z = -Math.PI / 2;
     planeMesh.position.y = -0.2;
+    planeMesh.position.z = -10;
     planeMesh.receiveShadow = true;
     scene.add(planeMesh);
 
@@ -350,8 +375,20 @@ export default (container) => {
     container.appendChild(renderer.domElement);
   }
 
+  function setupOrbitControls() {
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.target.set(0, 0.5, 0);
+    controls.enablePan = false;
+  }
+
   function setupModels() {
     const loader = new GLTFLoader();
+    const wire = new MeshLambertMaterial({
+      color: 0xff0000,
+      transparent: true,
+      opacity: 0,
+      // wireframe: true,
+    });
     loader.load(bolanUrl, (gltf) => {
       dino = gltf.scene;
       dino.rotation.y += Math.PI / 2;
@@ -359,10 +396,9 @@ export default (container) => {
       scene.add(dino);
 
       // Collision cube
-      const cubeGeometry = new CubeGeometry(0.6, 1, 1, 1, 1, 1);
-      const wire = new MeshLambertMaterial({ color: 0xff0000, transparent: true, opacity: 0 });
+      const cubeGeometry = new CubeGeometry(0.6, 1.5, 1, 1, 1, 1);
       dinoCollision = new Mesh(cubeGeometry, wire);
-      dinoCollision.position.set(-3, 0.5, 0);
+      dinoCollision.position.set(-2.8, 0.5, 0);
       scene.add(dinoCollision);
 
       dino.traverse((object) => {
@@ -388,12 +424,9 @@ export default (container) => {
 
       // actions = [ idleAction, walkAction, runAction ];
       actions = [idleAction, walkAction];
-
-
-      controls = new OrbitControls(camera, renderer.domElement);
-      controls.target.set(0, 0.5, 0);
-      controls.enablePan = false;
-
+      if (!IS_MOBILE) {
+        setupOrbitControls();
+      }
       activateAllActions();
     });
 
@@ -423,8 +456,7 @@ export default (container) => {
 
       // Collision cube
       const enemy = gEnemies[enemiesIndex];
-      const cubeGeometry = new CubeGeometry(0.3, 1, 1, 1, 1, 1);
-      const wire = new MeshLambertMaterial({ color: 0xff0000, transparent: true, opacity: 0 });
+      const cubeGeometry = new CubeGeometry(0.3, 1, 1, 2, 2, 2);
       enemiesCollision = new Mesh(cubeGeometry, wire);
       enemiesCollision.position.set(enemy.x, enemy.y + 0.5, enemy.z);
       enemiesCollision.scale.y = enemy.scale;
@@ -440,11 +472,6 @@ export default (container) => {
   }
 
   function init() {
-    xZoom = 6;
-    yZoom = 6;
-    noiseStrength = 0.15;
-    simplex = new SimplexNoise();
-
     setupScene();
     setupLights();
     setupGround();
@@ -456,15 +483,18 @@ export default (container) => {
 
     // stats = new Stats();
     // container.appendChild(stats.dom);
+    const debouncedResize = debounce(() => {
+      onWindowResize();
+    }, 250);
 
-    window.addEventListener('resize', onWindowResize, false);
+    window.addEventListener('resize', debouncedResize, false);
   }
 
   function keyDown(event) {
     keyboard[event.keyCode] = true;
     switch (event.keyCode) {
       case 32: {
-        if (canJump === true) velocity.y += 5.2;
+        if (canJump === true) { velocity.y += 5.2; }
         canJump = false;
         break;
       }
@@ -478,6 +508,15 @@ export default (container) => {
   }
 
   window.addEventListener('keydown', keyDown);
+  window.addEventListener('touchstart', () => {
+    paused = false;
+    if (canJump === true) { velocity.y += 5.2; }
+    canJump = false;
+  });
+  window.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  });
   window.addEventListener('keyup', keyUp);
   window.addEventListener('click', () => { paused = !paused; });
 

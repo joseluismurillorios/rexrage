@@ -38,10 +38,10 @@ if ('navigator' in window && window.navigator.standalone) {
   document.body.classList.add('isStandalone');
 }
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js');
-  console.log('Service worker registered');
-}
+// if ('serviceWorker' in navigator) {
+//   navigator.serviceWorker.register('service-worker.js');
+//   console.log('Service worker registered');
+// }
 
 // Add swipe capabillities
 helperSwipe(document);
