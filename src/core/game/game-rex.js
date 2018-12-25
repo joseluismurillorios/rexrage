@@ -39,7 +39,7 @@ export default scene => new Promise((res) => {
     });
 
     dino.loaded = true;
-    // console.log(dino);
+    console.log(gltf);
 
     const skeleton = new SkeletonHelper(dino);
     skeleton.visible = false;

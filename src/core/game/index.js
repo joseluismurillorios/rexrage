@@ -158,7 +158,7 @@ export default (container) => {
   }
 
   function activateAllActions() {
-    setWeight(idleAction, 0.0);
+    setWeight(idleAction, 0.4);
     setWeight(walkAction, 1.0);
   }
 
@@ -202,7 +202,6 @@ export default (container) => {
 
     let hits = false;
 
-
     for (let vertexIndex = 0; vertexIndex < dinoVertices.length; vertexIndex += 1) {
       const localVertex = dinoVertices[vertexIndex].clone();
       const globalVertex = localVertex.applyMatrix4(dinoCollision.matrix);
@@ -235,8 +234,6 @@ export default (container) => {
 
     if (dino.loaded && !paused) {
       // console.log(Math.sin(frame / 1000) * 2);
-      adjustVertices(offset);
-      moveAssets();
 
       const time = performance.now();
       const del = (time - prevTime) / 600;
@@ -256,6 +253,9 @@ export default (container) => {
       }
 
       prevTime = time;
+      
+      adjustVertices(offset);
+      moveAssets();
       checkCollisions();
     }
 
@@ -282,26 +282,28 @@ export default (container) => {
   }
 
   function init() {
-    // setupScene();
     clock = new Clock();
     setupScene().then(({ s, c, r }) => {
       console.log('scene loaded');
+
       scene = s;
       camera = c;
       renderer = r;
       container.appendChild(renderer.domElement);
 
-
       setupGround(scene).then(({ g, m }) => {
         console.log('ground loaded');
+
         planeGeo = g;
         planeMesh = m;
         adjustVertices(0);
 
         setupLights(scene).then(() => {
           console.log('lights loaded');
+
           setupRex(scene).then(({ d, dc, gl }) => {
             console.log('rex loaded');
+
             dino = d;
             dinoCollision = dc;
             const { animations } = gl;
@@ -309,11 +311,11 @@ export default (container) => {
             mixer = new AnimationMixer(dino);
             mixer.timeScale = 2;
 
-
             idleAction = mixer.clipAction(animations[0]);
             walkAction = mixer.clipAction(animations[1]);
-
+            idleAction.play();
             walkAction.play();
+
             mixer.addEventListener('loop', onLoopFinished);
 
             if (!IS_MOBILE) {
@@ -323,6 +325,7 @@ export default (container) => {
 
             setupAssets(scene, enemiesIndex, gAssets, gEnemies).then(({ ec }) => {
               console.log('assets loaded');
+
               enemiesCollision = ec;
               collidableMeshList.push(enemiesCollision);
               animate();
@@ -363,6 +366,7 @@ export default (container) => {
   window.addEventListener('keyup', keyUp);
   window.addEventListener('touchstart', () => {
     paused = false;
+    walkAction.play();
     if (canJump === true) { velocity.y += 5.2; }
     canJump = false;
   });
