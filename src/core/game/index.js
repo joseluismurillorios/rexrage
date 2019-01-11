@@ -3,7 +3,6 @@
 import {
   Raycaster,
   AnimationMixer,
-  Clock,
 } from 'three';
 
 import OrbitControls from 'three-orbitcontrols';
@@ -31,12 +30,7 @@ export default (container) => {
   let camera = {};
   // let stats;
   let mixer;
-  let clock;
   let controls;
-
-  const velocity = { x: 0, y: 0, z: 0 };
-  let prevTime = performance.now();
-  let canJump = true;
 
   let dino;
   let dinoCollision;
@@ -54,6 +48,15 @@ export default (container) => {
   const simplex = new SimplexNoise();
 
   let paused = true;
+
+  const velocity = { x: 0, y: 0, z: 0 };
+  let canJump = true;
+
+  const deltaTime = 1 / 60;
+  const jumpForce = 8.4;
+  let accumulatedTime = 0;
+  let lastTime = 0;
+  const gravity = 0.28;
 
   const gAssets = {
     tree1: {
@@ -224,49 +227,35 @@ export default (container) => {
   }
 
   function animate(frame) {
-    frame = frame || 0;
-    const offset = frame * offsetRate;
-
     requestAnimationFrame(animate);
+    accumulatedTime += (frame - lastTime) / 1000;
 
-    const delta = clock.getDelta();
-
-
-    if (dino.loaded && !paused) {
-      // console.log(Math.sin(frame / 1000) * 2);
-
-      const time = performance.now();
-      const del = (time - prevTime) / 600;
-      velocity.y -= 6.0 * del; // 100.0 = mass
-
-      dino.position.y += velocity.y * del;
+    while (accumulatedTime > deltaTime) {
+      dino.position.y += velocity.y * deltaTime;
       dinoCollision.position.y = dino.position.y + 0.5;
-      mixer.timeScale = 0.5;
-
-      if (dino.position.y <= 0) {
-        velocity.y = 0;
-        dino.position.y = 0;
-        dinoCollision.position.y = dino.position.y + 0.5;
-
-        mixer.timeScale = 2;
-        canJump = true;
-      }
-
-      prevTime = time;
-      
-      adjustVertices(offset);
+      velocity.y -= gravity;
+      accumulatedTime -= deltaTime;
+      mixer.update(deltaTime);
+      adjustVertices(frame * offsetRate);
       moveAssets();
       checkCollisions();
     }
-
-
-    mixer.update(delta);
-
-    if (!IS_MOBILE) {
-      controls.update(delta);
+    lastTime = frame;
+    if (dino.position.y <= 0) {
+      velocity.y = 0;
+      dino.position.y = 0;
+      mixer.timeScale = 2;
+      canJump = true;
     }
 
     renderer.render(scene, camera);
+
+    if (!IS_MOBILE) {
+      controls.update(deltaTime);
+    }
+
+    // Test
+    // setTimeout(animate, 1000 / 3, performance.now());
   }
 
   function setupOrbitControls() {
@@ -282,7 +271,6 @@ export default (container) => {
   }
 
   function init() {
-    clock = new Clock();
     setupScene().then(({ s, c, r }) => {
       console.log('scene loaded');
 
@@ -328,7 +316,7 @@ export default (container) => {
 
               enemiesCollision = ec;
               collidableMeshList.push(enemiesCollision);
-              animate();
+              animate(0);
             });
           });
         });
@@ -348,8 +336,13 @@ export default (container) => {
     keyboard[event.keyCode] = true;
     switch (event.keyCode) {
       case 32: {
-        if (canJump === true) { velocity.y += 5.2; }
+        walkAction.play();
+        if (canJump === true) {
+          mixer.timeScale = 0.5;
+          velocity.y = jumpForce;
+        }
         canJump = false;
+        paused = false;
         break;
       }
       default:
@@ -364,21 +357,31 @@ export default (container) => {
 
   window.addEventListener('keydown', keyDown);
   window.addEventListener('keyup', keyUp);
-  window.addEventListener('touchstart', () => {
-    paused = false;
-    walkAction.play();
-    if (canJump === true) { velocity.y += 5.2; }
-    canJump = false;
-  });
-  window.addEventListener('touchmove', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-  });
+
   window.addEventListener('click', () => {
     paused = !paused;
     if (!paused) {
       walkAction.play();
     }
+  });
+
+  window.addEventListener('touchstart', () => {
+    paused = false;
+    walkAction.play();
+    if (canJump === true) {
+      mixer.timeScale = 0.5;
+      velocity.y = jumpForce;
+    }
+    canJump = false;
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  });
+  container.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
   });
 
   init();
