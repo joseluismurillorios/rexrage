@@ -26,11 +26,11 @@ import WEBGL from './helper-webgl';
 import SimplexNoise from './helper-simplex';
 import { debounce } from './helper-util';
 
-import bolanUrl from '../assets/models/bolan.glb';
-import assetsUrl from '../assets/models/assets.glb';
+// import bolanUrl from '../assets/models/bolan.glb';
+// import assetsUrl from '../assets/models/assets.glb';
 
-// const bolanUrl = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/rexrage/src/core/assets/models/bolan.glb';
-// const assetsUrl = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/rexrage/src/core/assets/models/assets.glb';
+const bolanUrl = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/rexrage/src/core/assets/models/bolan.glb';
+const assetsUrl = 'https://cdn.jsdelivr.net/gh/joseluismurillorios/rexrage/src/core/assets/models/assets.glb';
 
 export default (container) => {
   const IS_MOBILE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);

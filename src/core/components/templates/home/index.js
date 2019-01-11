@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Game from '../../../helpers/helper-game';
+import Game from '../../../game';
 
 class Home extends Component {
   componentDidMount() {
