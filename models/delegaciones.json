@@ -12,6 +12,7 @@
       "properties": {
         "FID": 0,
         "name": "PLAYAS DE TIJUANA",
+        "displayName": "P",
         "Area": 61611939.3885,
         "Acres": 15224.641786,
         "Hectareas": 6161.19393884972,
@@ -11819,6 +11820,7 @@
       "properties": {
         "FID": 1,
         "name": "SAN ANTONIO DE LOS BUENOS",
+        "displayName": "SAB",
         "Area": 62421072.3632,
         "Acres": 15424.582898,
         "Hectareas": 6242.10723631826,
@@ -14436,6 +14438,7 @@
       "properties": {
         "FID": 2,
         "name": "PRESA ESTE",
+        "displayName": "PE",
         "Area": 436548229.417,
         "Acres": 107873.416759,
         "Hectareas": 43654.8229417307,
@@ -17618,6 +17621,7 @@
       "properties": {
         "FID": 3,
         "name": "RESTO DEL MUNICIPIO",
+        "displayName": "RDM",
         "Area": 465751505.323,
         "Acres": 115089.703392,
         "Hectareas": 46575.1505323007,
@@ -18995,6 +18999,7 @@
       "properties": {
         "FID": 4,
         "name": "SÁNCHEZ TABOADA",
+        "displayName": "ST",
         "Area": 42628481.8495,
         "Acres": 10533.727269,
         "Hectareas": 4262.84818494534,
@@ -21517,6 +21522,7 @@
       "properties": {
         "FID": 5,
         "name": "CERRO COLORADO",
+        "displayName": "CC",
         "Area": 23474290.538,
         "Acres": 5800.623518,
         "Hectareas": 2347.42905379833,
@@ -23013,7 +23019,8 @@
       "type": "Feature",
       "properties": {
         "FID": 6,
-        "name": "CENTRO",
+        "name": "C",
+        "displayName": "CENTRO",
         "Area": 24926755.0764,
         "Acres": 6159.535322,
         "Hectareas": 2492.675507645,
@@ -24466,6 +24473,7 @@
       "properties": {
         "FID": 7,
         "name": "OTAY CENTENARIO",
+        "displayName": "OC",
         "Area": 52610731.5633,
         "Acres": 13000.394892,
         "Hectareas": 5261.07315633443,
@@ -25916,18 +25924,15 @@
     {
       "type": "Feature",
       "properties": {
+        "FID": 8,
         "name": "LA PRESA",
-        "description": "<html xmlns:fo=\"http:\/\/www.w3.org\/1999\/XSL\/Format\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\">\n\n<head>\n\n<META http-equiv=\"Content-Type\" content=\"text\/html\">\n\n<meta http-equiv=\"content-type\" content=\"text\/html; charset=UTF-8\">\n\n<\/head>\n\n<body style=\"margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;\">\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px\">\n\n<tr style=\"text-align:center;font-weight:bold;background:#9CBCE2\">\n\n<td>LA PRESA<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px\">\n\n<tr>\n\n<td>FID<\/td>\n\n<td>8<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>name<\/td>\n\n<td>LA PRESA<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Area<\/td>\n\n<td>36592689.1598<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Acres<\/td>\n\n<td>9042.250414<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Hectareas<\/td>\n\n<td>3659.26891598044<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>HA<\/td>\n\n<td>3659.268916<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>POB_TOT_10<\/td>\n\n<td>270.31<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Shape_Leng<\/td>\n\n<td>31319.280517<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/body>\n\n<\/html>\n\n",
-        "timestamp": null,
-        "begin": null,
-        "end": null,
-        "altitudeMode": null,
-        "tessellate": -1,
-        "extrude": 0,
-        "visibility": -1,
-        "drawOrder": null,
-        "icon": null,
-        "snippet": ""
+        "displayName": "LP",
+        "Area": 36592689.1598,
+        "Acres": 9042.250414,
+        "Hectareas": 3659.26891598044,
+        "HA": 3659.268916,
+        "POB_TOT_10": 270.31,
+        "Shape_Leng": 31319.280517
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -27184,6 +27189,7 @@
       "properties": {
         "FID": 9,
         "name": "LA MESA",
+        "displayName": "LM",
         "Area": 30537115.2848,
         "Acres": 7545.885521,
         "Hectareas": 3053.71152847881,
