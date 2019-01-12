@@ -10,18 +10,14 @@
     {
       "type": "Feature",
       "properties": {
+        "FID": 0,
         "Name": "PLAYAS DE TIJUANA",
-        "description": "<html xmlns:fo=\"http:\/\/www.w3.org\/1999\/XSL\/Format\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\">\n\n<head>\n\n<META http-equiv=\"Content-Type\" content=\"text\/html\">\n\n<meta http-equiv=\"content-type\" content=\"text\/html; charset=UTF-8\">\n\n<\/head>\n\n<body style=\"margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;\">\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px\">\n\n<tr style=\"text-align:center;font-weight:bold;background:#9CBCE2\">\n\n<td>PLAYAS DE TIJUANA<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px\">\n\n<tr>\n\n<td>FID<\/td>\n\n<td>0<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>DELEGACIO_<\/td>\n\n<td>PLAYAS DE TIJUANA<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Area<\/td>\n\n<td>61611939.3885<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Acres<\/td>\n\n<td>15224.641786<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Hectareas<\/td>\n\n<td>6161.19393884972<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>HA<\/td>\n\n<td>6161.193939<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>POB_TOT_10<\/td>\n\n<td>131.143<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Shape_Leng<\/td>\n\n<td>48808.581907<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/body>\n\n<\/html>\n\n",
-        "timestamp": null,
-        "begin": null,
-        "end": null,
-        "altitudeMode": null,
-        "tessellate": -1,
-        "extrude": 0,
-        "visibility": -1,
-        "drawOrder": null,
-        "icon": null,
-        "snippet": ""
+        "Area": 61611939.3885,
+        "Acres": 15224.641786,
+        "Hectareas": 6161.19393884972,
+        "HA": 6161.193939,
+        "POB_TOT_10": 131.143,
+        "Shape_Leng": 48808.581907
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -11821,18 +11817,14 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "SAN ANTONIO DE LOS BUENOS",
-        "description": "<html xmlns:fo=\"http:\/\/www.w3.org\/1999\/XSL\/Format\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\">\n\n<head>\n\n<META http-equiv=\"Content-Type\" content=\"text\/html\">\n\n<meta http-equiv=\"content-type\" content=\"text\/html; charset=UTF-8\">\n\n<\/head>\n\n<body style=\"margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;\">\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px\">\n\n<tr style=\"text-align:center;font-weight:bold;background:#9CBCE2\">\n\n<td>SAN ANTONIO DE LOS BUENOS<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px\">\n\n<tr>\n\n<td>FID<\/td>\n\n<td>1<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>DELEGACIO_<\/td>\n\n<td>SAN ANTONIO DE LOS BUENOS<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Area<\/td>\n\n<td>62421072.3632<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Acres<\/td>\n\n<td>15424.582898<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Hectareas<\/td>\n\n<td>6242.10723631826<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>HA<\/td>\n\n<td>6242.107236<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>POB_TOT_10<\/td>\n\n<td>206.317<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Shape_Leng<\/td>\n\n<td>50045.785684<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/body>\n\n<\/html>\n\n",
-        "timestamp": null,
-        "begin": null,
-        "end": null,
-        "altitudeMode": null,
-        "tessellate": -1,
-        "extrude": 0,
-        "visibility": -1,
-        "drawOrder": null,
-        "icon": null,
-        "snippet": ""
+        "FID": 1,
+        "DELEGACIO_": "SAN ANTONIO DE LOS BUENOS",
+        "Area": 62421072.3632,
+        "Acres": 15424.582898,
+        "Hectareas": 6242.10723631826,
+        "HA": 6242.107236,
+        "POB_TOT_10": 206.317,
+        "Shape_Leng": 50045.785684
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -14442,18 +14434,14 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "PRESA ESTE",
-        "description": "<html xmlns:fo=\"http:\/\/www.w3.org\/1999\/XSL\/Format\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\">\n\n<head>\n\n<META http-equiv=\"Content-Type\" content=\"text\/html\">\n\n<meta http-equiv=\"content-type\" content=\"text\/html; charset=UTF-8\">\n\n<\/head>\n\n<body style=\"margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;\">\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px\">\n\n<tr style=\"text-align:center;font-weight:bold;background:#9CBCE2\">\n\n<td>PRESA ESTE<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px\">\n\n<tr>\n\n<td>FID<\/td>\n\n<td>2<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>DELEGACIO_<\/td>\n\n<td>PRESA ESTE<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Area<\/td>\n\n<td>436548229.417<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Acres<\/td>\n\n<td>107873.416759<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Hectareas<\/td>\n\n<td>43654.8229417307<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>HA<\/td>\n\n<td>43654.822942<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>POB_TOT_10<\/td>\n\n<td>199.127<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Shape_Leng<\/td>\n\n<td>126879.598784<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/body>\n\n<\/html>\n\n",
-        "timestamp": null,
-        "begin": null,
-        "end": null,
-        "altitudeMode": null,
-        "tessellate": -1,
-        "extrude": 0,
-        "visibility": -1,
-        "drawOrder": null,
-        "icon": null,
-        "snippet": ""
+        "FID": 2,
+        "DELEGACIO_": "PRESA ESTE",
+        "Area": 436548229.417,
+        "Acres": 107873.416759,
+        "Hectareas": 43654.8229417307,
+        "HA": 43654.822942,
+        "POB_TOT_10": 199.127,
+        "Shape_Leng": 126879.598784
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -17628,18 +17616,14 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "RESTO DEL MUNICIPIO",
-        "description": "<html xmlns:fo=\"http:\/\/www.w3.org\/1999\/XSL\/Format\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\">\n\n<head>\n\n<META http-equiv=\"Content-Type\" content=\"text\/html\">\n\n<meta http-equiv=\"content-type\" content=\"text\/html; charset=UTF-8\">\n\n<\/head>\n\n<body style=\"margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;\">\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px\">\n\n<tr style=\"text-align:center;font-weight:bold;background:#9CBCE2\">\n\n<td>RESTO DEL MUNICIPIO<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px\">\n\n<tr>\n\n<td>FID<\/td>\n\n<td>3<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>DELEGACIO_<\/td>\n\n<td>RESTO DEL MUNICIPIO<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Area<\/td>\n\n<td>465751505.323<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Acres<\/td>\n\n<td>115089.703392<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Hectareas<\/td>\n\n<td>46575.1505323007<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>HA<\/td>\n\n<td>46575.150532<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>POB_TOT_10<\/td>\n\n<td>156<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Shape_Leng<\/td>\n\n<td>118101.441578<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/body>\n\n<\/html>\n\n",
-        "timestamp": null,
-        "begin": null,
-        "end": null,
-        "altitudeMode": null,
-        "tessellate": -1,
-        "extrude": 0,
-        "visibility": -1,
-        "drawOrder": null,
-        "icon": null,
-        "snippet": ""
+        "FID": 3,
+        "DELEGACIO_": "RESTO DEL MUNICIPIO",
+        "Area": 465751505.323,
+        "Acres": 115089.703392,
+        "Hectareas": 46575.1505323007,
+        "HA": 46575.150532,
+        "POB_TOT_10": 156,
+        "Shape_Leng": 118101.441578
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -19009,18 +18993,14 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "SÁNCHEZ TABOADA",
-        "description": "<html xmlns:fo=\"http:\/\/www.w3.org\/1999\/XSL\/Format\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\">\n\n<head>\n\n<META http-equiv=\"Content-Type\" content=\"text\/html\">\n\n<meta http-equiv=\"content-type\" content=\"text\/html; charset=UTF-8\">\n\n<\/head>\n\n<body style=\"margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;\">\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px\">\n\n<tr style=\"text-align:center;font-weight:bold;background:#9CBCE2\">\n\n<td>SÁNCHEZ TABOADA<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px\">\n\n<tr>\n\n<td>FID<\/td>\n\n<td>4<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>DELEGACIO_<\/td>\n\n<td>SÁNCHEZ TABOADA<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Area<\/td>\n\n<td>42628481.8495<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Acres<\/td>\n\n<td>10533.727269<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Hectareas<\/td>\n\n<td>4262.84818494534<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>HA<\/td>\n\n<td>4262.848185<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>POB_TOT_10<\/td>\n\n<td>190.316<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Shape_Leng<\/td>\n\n<td>42498.706182<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/body>\n\n<\/html>\n\n",
-        "timestamp": null,
-        "begin": null,
-        "end": null,
-        "altitudeMode": null,
-        "tessellate": -1,
-        "extrude": 0,
-        "visibility": -1,
-        "drawOrder": null,
-        "icon": null,
-        "snippet": ""
+        "FID": 4,
+        "DELEGACIO_": "SÁNCHEZ TABOADA",
+        "Area": 42628481.8495,
+        "Acres": 10533.727269,
+        "Hectareas": 4262.84818494534,
+        "HA": 4262.848185,
+        "POB_TOT_10": 190.316,
+        "Shape_Leng": 42498.706182
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -21535,18 +21515,14 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "CERRO COLORADO",
-        "description": "<html xmlns:fo=\"http:\/\/www.w3.org\/1999\/XSL\/Format\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\">\n\n<head>\n\n<META http-equiv=\"Content-Type\" content=\"text\/html\">\n\n<meta http-equiv=\"content-type\" content=\"text\/html; charset=UTF-8\">\n\n<\/head>\n\n<body style=\"margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;\">\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px\">\n\n<tr style=\"text-align:center;font-weight:bold;background:#9CBCE2\">\n\n<td>CERRO COLORADO<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px\">\n\n<tr>\n\n<td>FID<\/td>\n\n<td>5<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>DELEGACIO_<\/td>\n\n<td>CERRO COLORADO<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Area<\/td>\n\n<td>23474290.538<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Acres<\/td>\n\n<td>5800.623518<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Hectareas<\/td>\n\n<td>2347.42905379833<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>HA<\/td>\n\n<td>2347.429054<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>POB_TOT_10<\/td>\n\n<td>121.02<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Shape_Leng<\/td>\n\n<td>25712.189977<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/body>\n\n<\/html>\n\n",
-        "timestamp": null,
-        "begin": null,
-        "end": null,
-        "altitudeMode": null,
-        "tessellate": -1,
-        "extrude": 0,
-        "visibility": -1,
-        "drawOrder": null,
-        "icon": null,
-        "snippet": ""
+        "FID": 5,
+        "DELEGACIO_": "CERRO COLORADO",
+        "Area": 23474290.538,
+        "Acres": 5800.623518,
+        "Hectareas": 2347.42905379833,
+        "HA": 2347.429054,
+        "POB_TOT_10": 121.02,
+        "Shape_Leng": 25712.189977
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -23036,18 +23012,14 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "CENTRO",
-        "description": "<html xmlns:fo=\"http:\/\/www.w3.org\/1999\/XSL\/Format\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\">\n\n<head>\n\n<META http-equiv=\"Content-Type\" content=\"text\/html\">\n\n<meta http-equiv=\"content-type\" content=\"text\/html; charset=UTF-8\">\n\n<\/head>\n\n<body style=\"margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;\">\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px\">\n\n<tr style=\"text-align:center;font-weight:bold;background:#9CBCE2\">\n\n<td>CENTRO<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px\">\n\n<tr>\n\n<td>FID<\/td>\n\n<td>6<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>DELEGACIO_<\/td>\n\n<td>CENTRO<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Area<\/td>\n\n<td>24926755.0764<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Acres<\/td>\n\n<td>6159.535322<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Hectareas<\/td>\n\n<td>2492.675507645<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>HA<\/td>\n\n<td>2492.675508<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>POB_TOT_10<\/td>\n\n<td>101.113<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Shape_Leng<\/td>\n\n<td>26246.993714<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/body>\n\n<\/html>\n\n",
-        "timestamp": null,
-        "begin": null,
-        "end": null,
-        "altitudeMode": null,
-        "tessellate": -1,
-        "extrude": 0,
-        "visibility": -1,
-        "drawOrder": null,
-        "icon": null,
-        "snippet": ""
+        "FID": 6,
+        "DELEGACIO_": "CENTRO",
+        "Area": 24926755.0764,
+        "Acres": 6159.535322,
+        "Hectareas": 2492.675507645,
+        "HA": 2492.675508,
+        "POB_TOT_10": 101.113,
+        "Shape_Leng": 26246.993714
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -24492,18 +24464,14 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "OTAY CENTENARIO",
-        "description": "<html xmlns:fo=\"http:\/\/www.w3.org\/1999\/XSL\/Format\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\">\n\n<head>\n\n<META http-equiv=\"Content-Type\" content=\"text\/html\">\n\n<meta http-equiv=\"content-type\" content=\"text\/html; charset=UTF-8\">\n\n<\/head>\n\n<body style=\"margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;\">\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px\">\n\n<tr style=\"text-align:center;font-weight:bold;background:#9CBCE2\">\n\n<td>OTAY CENTENARIO<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px\">\n\n<tr>\n\n<td>FID<\/td>\n\n<td>7<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>DELEGACIO_<\/td>\n\n<td>OTAY CENTENARIO<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Area<\/td>\n\n<td>52610731.5633<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Acres<\/td>\n\n<td>13000.394892<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Hectareas<\/td>\n\n<td>5261.07315633443<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>HA<\/td>\n\n<td>5261.073156<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>POB_TOT_10<\/td>\n\n<td>205.132<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Shape_Leng<\/td>\n\n<td>47976.638697<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/body>\n\n<\/html>\n\n",
-        "timestamp": null,
-        "begin": null,
-        "end": null,
-        "altitudeMode": null,
-        "tessellate": -1,
-        "extrude": 0,
-        "visibility": -1,
-        "drawOrder": null,
-        "icon": null,
-        "snippet": ""
+        "FID": 7,
+        "DELEGACIO_": "OTAY CENTENARIO",
+        "Area": 52610731.5633,
+        "Acres": 13000.394892,
+        "Hectareas": 5261.07315633443,
+        "HA": 5261.073156,
+        "POB_TOT_10": 205.132,
+        "Shape_Leng": 47976.638697
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -27214,18 +27182,14 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "LA MESA",
-        "description": "<html xmlns:fo=\"http:\/\/www.w3.org\/1999\/XSL\/Format\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\">\n\n<head>\n\n<META http-equiv=\"Content-Type\" content=\"text\/html\">\n\n<meta http-equiv=\"content-type\" content=\"text\/html; charset=UTF-8\">\n\n<\/head>\n\n<body style=\"margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;\">\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px\">\n\n<tr style=\"text-align:center;font-weight:bold;background:#9CBCE2\">\n\n<td>LA MESA<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>\n\n<table style=\"font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px\">\n\n<tr>\n\n<td>FID<\/td>\n\n<td>9<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>DELEGACIO_<\/td>\n\n<td>LA MESA<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Area<\/td>\n\n<td>30537115.2848<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Acres<\/td>\n\n<td>7545.885521<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>Hectareas<\/td>\n\n<td>3053.71152847881<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>HA<\/td>\n\n<td>3053.711528<\/td>\n\n<\/tr>\n\n<tr>\n\n<td>POB_TOT_10<\/td>\n\n<td>135.205<\/td>\n\n<\/tr>\n\n<tr bgcolor=\"#D4E4F3\">\n\n<td>Shape_Leng<\/td>\n\n<td>39819.170664<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/td>\n\n<\/tr>\n\n<\/table>\n\n<\/body>\n\n<\/html>\n\n",
-        "timestamp": null,
-        "begin": null,
-        "end": null,
-        "altitudeMode": null,
-        "tessellate": -1,
-        "extrude": 0,
-        "visibility": -1,
-        "drawOrder": null,
-        "icon": null,
-        "snippet": ""
+        "FID": 9,
+        "DELEGACIO_": "LA MESA",
+        "Area": 30537115.2848,
+        "Acres": 7545.885521,
+        "Hectareas": 3053.71152847881,
+        "HA": 3053.711528,
+        "POB_TOT_10": 135.205,
+        "Shape_Leng": 39819.170664
       },
       "geometry": {
         "type": "MultiPolygon",
