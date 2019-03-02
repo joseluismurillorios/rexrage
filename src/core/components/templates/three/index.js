@@ -64,7 +64,9 @@ class Three extends Component {
   tick() {
     this.setState({ index: Math.floor(Math.random() * this.components.length) });
     setTimeout(() => {
-      this.setState({ labelIndex: Math.floor(Math.random() * this.labels.length) });
+      const labelIndex = Math.floor(Math.random() * this.labels.length);
+      console.log('rand', labelIndex);
+      this.setState({ labelIndex });
     }, 10000);
   }
 
