@@ -27,8 +27,9 @@
     "react-transition-group": "^2.5.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "three": "^0.99.0",
+    "three": "^0.71.0",
     "three-gltf-loader": "^1.99.1",
+    "three-orbit-controls": "^71.1.0",
     "three-orbitcontrols": "^2.99.1"
   },
   "devDependencies": {

@@ -1,3 +1,70 @@
+#Three.app__three {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #171824; }
+  #Three.app__three .app__info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 8pt;
+    letter-spacing: 1px;
+    padding: .25rem; }
+  #Three.app__three .app__banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 100%;
+    height: 200px;
+    background: #0f0f1b;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  #Three.app__three .app__visual {
+    -webkit-animation: tick 30s infinite;
+            animation: tick 30s infinite;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-timing-function: linear; }
+  #Three.app__three h1 {
+    font-size: 4rem;
+    color: white;
+    text-transform: uppercase;
+    font-size: 4vw; }
+
+@-webkit-keyframes tick {
+  0% {
+    opacity: 0; }
+  2% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  90% {
+    opacity: 1; }
+  98% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@keyframes tick {
+  0% {
+    opacity: 0; }
+  2% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  90% {
+    opacity: 1; }
+  98% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
 .addhome {
   position: absolute;
   bottom: 1.5rem;

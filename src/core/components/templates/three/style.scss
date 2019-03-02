@@ -1,0 +1,66 @@
+#Three.app__three {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #171824;
+
+  .app__info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 8pt;
+    letter-spacing: 1px;
+    padding: .25rem;
+  }
+
+  .app__banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 200px;
+    background: #0f0f1b;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app__visual {
+    animation: tick 30s infinite;
+    animation-direction: alternate;
+    -webkit-animation-timing-function: linear;
+  }
+
+  h1 {
+    font-size: 4rem;
+    color: white;
+    text-transform: uppercase;
+    font-size: 4vw;
+  }
+}
+
+@keyframes tick {
+  0%{
+    opacity: 0;
+  }
+  2%{
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  90%{
+    opacity: 1;
+  }
+  98%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}

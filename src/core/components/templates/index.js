@@ -1,9 +1,15 @@
-import Home from './home';
+// import Home from './home';
+import Three from './three';
 
 export default [
   {
     url: '/',
-    component: Home,
+    component: Three,
     name: 'Home',
+  },
+  {
+    url: '/visuals',
+    component: Three,
+    name: 'Visuals',
   },
 ];
