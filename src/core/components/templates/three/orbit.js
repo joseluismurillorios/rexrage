@@ -9,6 +9,8 @@ import * as THREE from 'three';
 
 import './style.scss';
 
+const OrbitControls = require('three-orbit-controls')(THREE);
+
 class Orbit extends Component {
   constructor(props) {
     super(props);
@@ -50,6 +52,7 @@ class Orbit extends Component {
     this.loop = this.loop.bind(this);
     this.stopLoop = this.stopLoop.bind(this);
     this.pauseLoop = this.pauseLoop.bind(this);
+    this.soundAllowed = this.soundAllowed.bind(this);
   }
 
   componentDidMount() {
@@ -113,10 +116,16 @@ class Orbit extends Component {
 
     this.scene.add(this.Sun);
 
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls.noPan = true;
+
     // Update 58
     this.inc = 0;
 
     window.addEventListener('resize', this.onWindowResize, false);
+    navigator.getUserMedia({ audio: true }, this.soundAllowed, (error) => {
+      console.log(error);
+    });
 
     this.loop();
   }
@@ -137,6 +146,16 @@ class Orbit extends Component {
     this.camera.updateProjectionMatrix();
 
     this.renderer.setSize(this.window.w, this.window.h);
+  }
+
+  soundAllowed(stream) {
+    window.persistAudioStream = stream;
+    this.audioContent = new AudioContext();
+    this.audioStream = this.audioContent.createMediaStreamSource(stream);
+    this.analyser = this.audioContent.createAnalyser();
+    this.audioStream.connect(this.analyser);
+    this.analyser.fftSize = 1024;
+    this.frequencyArray = new Uint8Array(this.analyser.frequencyBinCount);
   }
 
   loop(now) {
@@ -178,7 +197,14 @@ class Orbit extends Component {
   }
 
   update(now) {
-    const x = Math.abs(Math.sin((now / this.millis) * Math.PI));
+    let z = false;
+    if (this.analyser) {
+      this.analyser.getByteFrequencyData(this.frequencyArray);
+      z = this.frequencyArray[6] / 127;
+    }
+    // const x = z || (Math.abs(Math.sin(((now) / this.millis) * Math.PI)) * 0.5) + 0.8;
+
+    const x = z || Math.abs(Math.sin((now / this.millis) * Math.PI));
     this.camera.lookAt(this.Sun.position);
     this.camera.position.y = 60;
     this.inc += 0.025;
@@ -198,6 +224,7 @@ class Orbit extends Component {
       this.tabParts[i].ptl.scale.set(x, x, x);
     }
     this.Sun.scale.set(x * 2, x * 2, x * 2);
+    this.controls.update();
     this.renderer.render(this.scene, this.camera);
   }
 

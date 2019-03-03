@@ -8,6 +8,8 @@ import * as THREE from 'three';
 
 import './style.scss';
 
+const OrbitControls = require('three-orbit-controls')(THREE);
+
 class Triangles extends Component {
   static fancyTriangle(size) {
     // Local Variables
@@ -91,6 +93,7 @@ class Triangles extends Component {
     this.loop = this.loop.bind(this);
     this.stopLoop = this.stopLoop.bind(this);
     this.pauseLoop = this.pauseLoop.bind(this);
+    this.soundAllowed = this.soundAllowed.bind(this);
   }
 
   componentDidMount() {
@@ -108,7 +111,7 @@ class Triangles extends Component {
 
     // Move the camera
     this.camera.position.z = 100;
-    this.camera.position.y = 30;
+    this.camera.position.y = 10;
     // Variables
     this.uTime = 0;
 
@@ -125,8 +128,6 @@ class Triangles extends Component {
       this.triangles[i].position.x = -50 + (Math.random() * 100);
       this.triangles[i].position.y = -50 + (Math.random() * 100);
       this.triangles[i].position.z = -20 + (Math.random() * 40);
-      this.triangles[i].rotation.y = -50 + (Math.random() * 100);
-      this.triangles[i].rotation.x = -50 + (Math.random() * 100);
 
 
       this.triangles[i].speedVelocityX = Math.random() * 0.02;
@@ -135,7 +136,16 @@ class Triangles extends Component {
       this.group.add(this.triangles[i]);
     }
 
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls.noPan = true;
+
+    // this.axis = new THREE.AxisHelper(75);
+    // this.scene.add(this.axis);
+
     window.addEventListener('resize', this.onWindowResize, false);
+    navigator.getUserMedia({ audio: true }, this.soundAllowed, (error) => {
+      console.log(error);
+    });
 
     this.loop();
   }
@@ -158,6 +168,16 @@ class Triangles extends Component {
     this.renderer.setSize(this.window.w, this.window.h);
   }
 
+  soundAllowed(stream) {
+    window.persistAudioStream = stream;
+    this.audioContent = new AudioContext();
+    this.audioStream = this.audioContent.createMediaStreamSource(stream);
+    this.analyser = this.audioContent.createAnalyser();
+    this.audioStream.connect(this.analyser);
+    this.analyser.fftSize = 1024;
+    this.frequencyArray = new Uint8Array(this.analyser.frequencyBinCount);
+  }
+
   loop(now) {
     // if not paused, do epic things!
     if (this.reset) {
@@ -173,7 +193,7 @@ class Triangles extends Component {
 
       if (!this.now || now - this.now >= this.millis) {
         this.now = now;
-        console.log('sombrero tick', this.bpm, this.millis);
+        // console.log('sombrero tick', this.bpm, this.millis);
       }
     }
   }
@@ -197,7 +217,15 @@ class Triangles extends Component {
   }
 
   update(now) {
-    const x = (Math.abs(Math.sin(((now) / this.millis) * Math.PI)) * 0.5) + 0.8;
+    let z = false;
+    if (this.analyser) {
+      this.analyser.getByteFrequencyData(this.frequencyArray);
+      z = this.frequencyArray[6] / 127;
+    }
+    const x = z || (Math.abs(Math.sin(((now) / this.millis) * Math.PI)) * 0.5) + 0.8;
+
+    // const x = (Math.abs(Math.sin(((now) / this.millis) * Math.PI)) * 0.5) + 0.8;
+    // console.log(x, z);
     this.uTime += 1;
 
     // Your code
@@ -210,13 +238,14 @@ class Triangles extends Component {
       this.triangles[i].position.z = -20 + (Math.sin(((this.uTime * 0.01) + i) * 0.01) * 40);
 
 
-      if (this.triangles[i].position.y > 50) {
-        this.triangles[i].position.y = -100 + (Math.random() * 100);
+      if (this.triangles[i].position.y > 2) {
+        this.triangles[i].position.y = -200 + (Math.random() * 100);
       }
 
       this.triangles[i].scale.set(x, x, x);
     }
 
+    this.controls.update();
     this.renderer.render(this.scene, this.camera);
   }
 

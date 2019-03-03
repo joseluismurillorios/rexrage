@@ -9,6 +9,8 @@ import * as THREE from 'three';
 
 import './style.scss';
 
+const OrbitControls = require('three-orbit-controls')(THREE);
+
 class Terrain {
   constructor(scene) {
     this.uniforms = null;
@@ -169,6 +171,7 @@ class Sombrero extends Component {
 
     this.w = window.innerWidth;
     this.h = window.innerHeight;
+    this.soundAllowed = this.soundAllowed.bind(this);
   }
 
   componentDidMount() {
@@ -187,7 +190,14 @@ class Sombrero extends Component {
     this.camera.lookAt(new THREE.Vector3());
     this.terrain = new Terrain(this.scene);
     this.scene.add(this.terrain.plane_mesh);
+
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls.noPan = true;
+
     window.addEventListener('resize', this.onWindowResize, false);
+    navigator.getUserMedia({ audio: true }, this.soundAllowed, (error) => {
+      console.log(error);
+    });
     // this.update();
 
     this.loop();
@@ -217,6 +227,16 @@ class Sombrero extends Component {
     return this.renderer.setSize(stageWidth, stageHeight);
   }
 
+  soundAllowed(stream) {
+    window.persistAudioStream = stream;
+    this.audioContent = new AudioContext();
+    this.audioStream = this.audioContent.createMediaStreamSource(stream);
+    this.analyser = this.audioContent.createAnalyser();
+    this.audioStream.connect(this.analyser);
+    this.analyser.fftSize = 1024;
+    this.frequencyArray = new Uint8Array(this.analyser.frequencyBinCount);
+  }
+
   loop(now) {
     // if not paused, do epic things!
     if (this.reset) {
@@ -232,7 +252,7 @@ class Sombrero extends Component {
 
       if (!this.now || now - this.now >= this.millis) {
         this.now = now;
-        console.log('sombrero tick', this.bpm, this.millis);
+        // console.log('sombrero tick', this.bpm, this.millis);
       }
     }
   }
@@ -256,10 +276,17 @@ class Sombrero extends Component {
   }
 
   update(now) {
-    const x = (Math.abs(Math.sin(((now - this.then) / (this.millis)) * Math.PI)));
-    // console.log(x);
+    let z = false;
+    if (this.analyser) {
+      this.analyser.getByteFrequencyData(this.frequencyArray);
+      z = this.frequencyArray[6] / 255;
+    }
+    const x = z || (Math.abs(Math.sin(((now - this.then) / (this.millis)) * Math.PI)));
+    // console.log(z, x);
     // requestAnimationFrame(this.update);
     this.terrain.update(x);
+
+    this.controls.update();
     return this.renderScene();
   }
 

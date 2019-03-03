@@ -105,6 +105,7 @@ class Blob extends Component {
     this.pauseLoop = this.pauseLoop.bind(this);
     this.update = this.update.bind(this);
     this.draw = this.draw.bind(this);
+    this.soundAllowed = this.soundAllowed.bind(this);
 
     // this.ip = document.getElementById('app').getAttribute('data-server');
     // this.port = document.getElementById('app').getAttribute('data-port');
@@ -116,7 +117,7 @@ class Blob extends Component {
     this.createControls();
     this.createParticleSystem();
     this.visuals.addEventListener('click', (e) => {
-      console.log('click', e);
+      // console.log('click', e);
       this.reset = true;
 
       const geometry = new THREE.BoxGeometry(2, 2, 2);
@@ -136,6 +137,9 @@ class Blob extends Component {
     // createGUI();
 
     window.addEventListener('resize', this.onWindowResize, false);
+    navigator.getUserMedia({ audio: true }, this.soundAllowed, (error) => {
+      console.log(error);
+    });
 
     this.loop();
   }
@@ -175,6 +179,16 @@ class Blob extends Component {
     this.camera.lookAt(this.scene.position);
   }
 
+  soundAllowed(stream) {
+    window.persistAudioStream = stream;
+    this.audioContent = new AudioContext();
+    this.audioStream = this.audioContent.createMediaStreamSource(stream);
+    this.analyser = this.audioContent.createAnalyser();
+    this.audioStream.connect(this.analyser);
+    this.analyser.fftSize = 1024;
+    this.frequencyArray = new Uint8Array(this.analyser.frequencyBinCount);
+  }
+
   loop(now) {
     // if not paused, do epic things!
     if (this.reset) {
@@ -189,15 +203,22 @@ class Blob extends Component {
       this.update();
       this.draw();
 
-      const x = ((now - this.then) / (this.millis)) * Math.PI;
-      this.shaderUniforms.damping.value = (Math.sin(x) * 0.1) + 0.1;
+      let z = false;
+      if (this.analyser) {
+        this.analyser.getByteFrequencyData(this.frequencyArray);
+        z = this.frequencyArray[6] / 255;
+      }
+
+      const x = z || Math.sin(((now - this.then) / (this.millis)) * Math.PI);
+      // console.log(z, x);
+      this.shaderUniforms.damping.value = (x * 0.4) + 0.1;
       this.shaderUniforms.damping.needsUpdate = true;
-      this.shaderUniforms.modifiers.value.w = Math.abs(Math.sin(x) * 1.5);
+      this.shaderUniforms.modifiers.value.w = Math.abs(x * 1.5);
       this.shaderUniforms.modifiers.needsUpdate = true;
 
       if (!this.now || now - this.now >= this.millis) {
         this.now = now;
-        console.log('blob tick', this.bpm, this.millis);
+        // console.log('blob tick', this.bpm, this.millis);
       }
     }
   }

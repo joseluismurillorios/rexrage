@@ -51,6 +51,7 @@ class XP extends Component {
     this.loop = this.loop.bind(this);
     this.stopLoop = this.stopLoop.bind(this);
     this.pauseLoop = this.pauseLoop.bind(this);
+    this.soundAllowed = this.soundAllowed.bind(this);
   }
 
   componentDidMount() {
@@ -86,6 +87,9 @@ class XP extends Component {
     this.planet.material.opacity = Math.random();
 
     window.addEventListener('resize', this.onWindowResize, false);
+    navigator.getUserMedia({ audio: true }, this.soundAllowed, (error) => {
+      console.log(error);
+    });
 
     // socket.on('visuals', (msg) => {
     //   if (msg.controller === 1) {
@@ -120,6 +124,16 @@ class XP extends Component {
     this.renderer.setSize(this.window.w, this.window.h);
   }
 
+  soundAllowed(stream) {
+    window.persistAudioStream = stream;
+    this.audioContent = new AudioContext();
+    this.audioStream = this.audioContent.createMediaStreamSource(stream);
+    this.analyser = this.audioContent.createAnalyser();
+    this.audioStream.connect(this.analyser);
+    this.analyser.fftSize = 1024;
+    this.frequencyArray = new Uint8Array(this.analyser.frequencyBinCount);
+  }
+
   loop(now) {
     // if not paused, do epic things!
     if (this.reset) {
@@ -135,7 +149,7 @@ class XP extends Component {
 
       if (!this.now || now - this.now >= this.millis) {
         this.now = now;
-        console.log('sombrero tick', this.bpm, this.millis);
+        // console.log('sombrero tick', this.bpm, this.millis);
       }
     }
   }
@@ -159,9 +173,21 @@ class XP extends Component {
   }
 
   update(now) {
-    const x = Math.abs(Math.sin((now / this.millis) * Math.PI));
-    const y = Math.abs(Math.sin(now * 0.005));
-    // console.log(y);
+    let z = false;
+    // let w = false;
+    if (this.analyser) {
+      // this.analyser.getByteFrequencyData(this.frequencyArray);
+      this.analyser.getByteFrequencyData(this.frequencyArray);
+      z = this.frequencyArray[6] / 127;
+      // w = this.frequencyArray[100] / 127;
+    }
+    // console.log(now, this.millis);
+    const x = z || Math.abs(Math.sin((now / this.millis) * Math.PI));
+    const y = z || Math.abs(Math.sin(now * 0.005));
+
+    // const x = Math.abs(Math.sin((now / this.millis) * Math.PI));
+    // const y = x || Math.abs(Math.sin(now * 0.005));
+    // console.log(z, y);
     this.material.uniforms.time.value = (x * 0.00005) * (y * 1000);
     this.scene.rotation.y += 0.015;
 
